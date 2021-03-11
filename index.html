@@ -51,6 +51,19 @@
                 color: white;
                 font-weight: 600;
             }
+
+            .resolution-warning {
+                display: none;
+                color: white;
+                text-align: center;
+                font-weight: 600;
+            }
+
+            @media only screen and (max-width: 1000px) {
+                .resolution-warning {
+                    display: block;
+                }
+            }
             
         </style>
 
@@ -59,11 +72,37 @@
     <!-- Main Site -->
     <body>
 
+        <!-- JQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous" 
+        ></script>
+
+        <!-- Search Function -->
+        <script>
+
+            const googleBase = 'https://www.google.com/search?q='
+
+            $(document).ready(function() {
+                $( ".search-google" ).click(function() {
+                    const query = $('#main-search').val()
+                    window.location = googleBase + query.split(' ').join('+')
+                })
+            })
+
+        </script>
+
         <!-- Navigation -->
         <nav style="height: 50px; background-color: #007bff !important;" class="navbar navbar-expand-lg navbar-light bg-light flex-grow-1 text-right navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
+                <a class="navbar-brand" href="#">Google (Programming-Edition)</a>
                 <ul class="navbar-nav mb-2 mb-lg-0 float-right">
+
+                    <!-- YouTube -->
+                    <li class="nav-item mr-2">
+                        <a class="nav-link active" aria-current="page" href="#">YouTube</a>
+                    </li>
 
                     <!-- Gmail -->
                     <li class="nav-item mr-2">
@@ -96,10 +135,12 @@
                 <!-- Google Image -->
                 <img src="./images/GoogleLogo.png" width="60%" height="auto" style="display: block;" class="mx-auto" alt="Google logo.">
 
+                <p class="resolution-warning">This page is being rendered at an unsupported resolution! I would recommend using desktop with a larger screen, and making sure that you have the application opened in full screen.</p>
+
                 <!-- Search Bar -->
                 <div class="input-group w-100 mt-2">
                     <div class="form-outline w-100">
-                        <input type="search" style="border-radius: 20px;" class="form-control bg-dark btn-outline-dark pt-2 pb-2 text-white" placeholder="Search">
+                        <input id="main-search" type="search" style="border-radius: 20px; text-align: center;" class="form-control bg-dark btn-outline-dark pt-2 pb-2 text-white" placeholder="What do you need help with?">
                     </div>
                 </div>
 
@@ -108,7 +149,7 @@
 
                     <!-- First Button -->
                     <div class="col-lg-8">
-                        <button type="button" style="border-radius: 20px;" class="btn btn-primary mt-3 w-100">
+                        <button type="button" style="border-radius: 20px;" class="search-google btn btn-primary mt-3 w-100">
                             <i class="fas fa-search mx-1"></i>
                             Search
                         </button>
@@ -116,7 +157,7 @@
 
                     <!-- Second Button -->
                     <div class="col-lg-4">
-                        <button type="button" style="border-radius: 20px; background-color: #4285F4;" class="btn btn-primary mt-3 w-100">
+                        <button type="button" style="border-radius: 20px; background-color: #4285F4;" class="search-google btn btn-primary mt-3 w-100">
                             <i class="fas fa-coins mx-1"></i>
                             Feeling Lucky
                         </button>
@@ -134,7 +175,7 @@
              <div style="width: 15px;"></div>
 
              <!-- TOS Message -->
-            <p>By using this site, you agree to our <a class="f-link">terms of service</a> and <a class="f-link">privacy policy</a>.</p>
+            <p style="text-align: center; width: 100%;">By using this site, you agree to our <a class="f-link">terms of service</a> and <a class="f-link">privacy policy</a>.</p>
 
          </div>
     

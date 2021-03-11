@@ -85,10 +85,20 @@
             const googleBase = 'https://www.google.com/search?q='
 
             $(document).ready(function() {
+
+                alert('Welcome! Check out the site\'s design, and try searching for something! Just type some text in the box and press the search button! Press okay to continue!')
+
                 $( ".search-google" ).click(function() {
                     const query = $('#main-search').val()
+
+                    if (!query) {
+                        alert('No texted entered in the search field! What should I lookup?')
+                        return
+                    }
+
                     window.location = googleBase + query.split(' ').join('+')
                 })
+
             })
 
         </script>
@@ -96,7 +106,7 @@
         <!-- Navigation -->
         <nav style="height: 50px; background-color: #007bff !important;" class="navbar navbar-expand-lg navbar-light bg-light flex-grow-1 text-right navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Google (Programming-Edition)</a>
+                <a class="navbar-brand" href="#"><b>Google</b> (Programming-Edition)</a>
                 <ul class="navbar-nav mb-2 mb-lg-0 float-right">
 
                     <!-- YouTube -->
@@ -130,6 +140,7 @@
 
         <!-- Page Content -->
         <div id='main-container' style="height: calc(100% - 50px);" class="container-fluid d-flex flex-grow-1 justify-content-center bg-secondary">
+
             <div class="my-auto w-50">
 
                 <!-- Google Image -->
